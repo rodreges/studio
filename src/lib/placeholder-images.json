@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-image",
+      "description": "A person studying with books and a laptop in a bright, modern environment.",
+      "imageUrl": "https://images.unsplash.com/photo-1531913223931-b0d3198229ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsZWFybmluZyUyMHN0dWR5fGVufDB8fHx8MTc2NDUxNzMxNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "learning study"
+    },
+    {
+      "id": "course-web-dev",
+      "description": "A computer screen with code on it.",
+      "imageUrl": "https://images.unsplash.com/photo-1653387141060-9a9834f47777?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb2RlJTIwcHJvZ3JhbW1pbmd8ZW58MHx8fHwxNzY0NTE2ODg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "code programming"
+    },
+    {
+      "id": "course-data-science",
+      "description": "Abstract visualization of data networks.",
+      "imageUrl": "https://images.unsplash.com/photo-1644325349124-d1756b79dd42?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkYXRhJTIwbmV0d29ya3xlbnwwfHx8fDE3NjQ1MDUxNjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data network"
+    },
+    {
+      "id": "course-design",
+      "description": "A designer's desk with color swatches and a tablet.",
+      "imageUrl": "https://images.unsplash.com/photo-1622126755582-16754165dce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZXNpZ24lMjBkZXNrfGVufDB8fHx8MTc2NDU3OTkzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "design desk"
+    }
+  ]
 }
