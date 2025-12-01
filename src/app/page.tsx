@@ -1,37 +1,43 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 import Link from 'next/link';
+import { OnlineLearningIllustration, ReadingIllustration } from '@/components/illustrations';
+import { BlobOne, BlobTwo, BlobThree } from '@/components/blobs';
 
 export default function LandingPage() {
-  const learningImage = {
-    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1740&auto=format&fit=crop',
-    imageHint: 'online learning student',
-  };
-
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 via-rose-50 to-cyan-50">
-      <main className="flex-1 flex flex-col items-center justify-center p-8 text-center">
-        <div className="max-w-md w-full">
-            <Image
-                src={learningImage.imageUrl}
-                alt="A student learning online"
-                width={500}
-                height={500}
-                data-ai-hint={learningImage.imageHint}
-                className="rounded-full aspect-square object-cover w-64 h-64 mx-auto mb-8 shadow-xl border-4 border-white"
-            />
-            
-            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary mb-4">
-                Unlock Your Potential
+    <div className="relative flex flex-col min-h-screen bg-background overflow-hidden">
+      {/* Background Blobs */}
+      <BlobOne className="absolute -top-40 -left-40 text-primary opacity-80" />
+      <BlobTwo className="absolute -top-20 -right-60 text-accent/50" />
+      <BlobThree className="absolute -bottom-80 -right-40 text-primary" />
+      <BlobTwo className="absolute bottom-60 -left-40 text-accent/30" />
+
+
+      <main className="flex-1 flex flex-col justify-between p-8 z-10">
+        <div className="flex-grow flex flex-col justify-center">
+            <h1 className="text-6xl font-bold text-white mb-16 -rotate-6">
+                Let's learn
             </h1>
 
-            <p className="text-muted-foreground md:text-lg mb-8">
-                Personalized learning paths to help you achieve your goals. Start your journey with us today.
-            </p>
+            <div className="relative mb-12">
+                <div className="absolute -inset-4 bg-white/80 backdrop-blur-sm rounded-[45%] transform -rotate-6"></div>
+                <div className="relative">
+                    <OnlineLearningIllustration className="w-full max-w-sm mx-auto" />
+                </div>
+            </div>
 
-            <Button size="lg" className="w-full max-w-xs text-lg" asChild>
-                <Link href="/signup">Start Learning</Link>
+            <div className="relative mb-12 self-end">
+                <div className="absolute -inset-4 bg-white/80 backdrop-blur-sm rounded-[45%] transform rotate-3"></div>
+                 <div className="relative">
+                    <ReadingIllustration className="w-full max-w-xs mx-auto" />
+                </div>
+            </div>
+        </div>
+        
+        <div className="flex-shrink-0 pb-8">
+            <Button size="lg" className="w-full max-w-xs mx-auto text-lg bg-accent text-primary-foreground hover:bg-accent/90 rounded-full h-14 shadow-lg" asChild>
+                <Link href="/signup">Get Started</Link>
             </Button>
         </div>
       </main>
