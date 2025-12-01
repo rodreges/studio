@@ -1,60 +1,40 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BlobOne, BlobTwo, BlobThree, BlobFour } from '@/components/blobs';
 
-export default function MobileLearningPage() {
-  const onlineLearningImage = {
-    imageUrl: 'https://picsum.photos/seed/online-learning/400/300',
-    imageHint: 'online learning',
-  };
-  const readingImage = {
-    imageUrl: 'https://picsum.photos/seed/reading-books/400/300',
-    imageHint: 'reading books',
+export default function LandingPage() {
+  const learningImage = {
+    imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1740&auto=format&fit=crop',
+    imageHint: 'online learning student',
   };
 
   return (
-    <div className="relative flex flex-col h-screen w-full overflow-hidden bg-white">
-      {/* Background Blobs */}
-      <BlobOne className="absolute -top-40 -left-40 text-primary/80" />
-      <BlobTwo className="absolute -top-40 -right-20 text-accent/60" />
-      <BlobThree className="absolute bottom-[-350px] -left-20 text-primary" />
-      <BlobFour className="absolute bottom-[200px] right-[-200px] text-accent/60" />
-      
-      <main className="flex flex-col flex-1 z-10 px-8 py-12">
-        <h1 className="text-5xl font-bold text-white mb-10">Let's learn</h1>
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 via-rose-50 to-cyan-50">
+      <main className="flex-1 flex flex-col items-center justify-center p-8 text-center">
+        <div className="max-w-md w-full">
+            <Image
+                src={learningImage.imageUrl}
+                alt="A student learning online"
+                width={500}
+                height={500}
+                data-ai-hint={learningImage.imageHint}
+                className="rounded-full aspect-square object-cover w-64 h-64 mx-auto mb-8 shadow-xl border-4 border-white"
+            />
+            
+            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary mb-4">
+                Unlock Your Potential
+            </h1>
 
-        <div className="flex-1 flex flex-col justify-center items-center gap-8">
-            <div className="relative w-64 h-48 bg-white p-3 rounded-3xl shadow-lg -rotate-6 transform">
-                <Image
-                    src={onlineLearningImage.imageUrl}
-                    alt="A person learning online"
-                    width={400}
-                    height={300}
-                    data-ai-hint={onlineLearningImage.imageHint}
-                    className="rounded-2xl object-cover w-full h-full"
-                />
-            </div>
-            <div className="relative w-64 h-48 bg-white p-3 rounded-3xl shadow-lg rotate-6 transform">
-                <Image
-                    src={readingImage.imageUrl}
-                    alt="A person reading books"
-                    width={400}
-                    height={300}
-                    data-ai-hint={readingImage.imageHint}
-                    className="rounded-2xl object-cover w-full h-full"
-                />
-            </div>
+            <p className="text-muted-foreground md:text-lg mb-8">
+                Personalized learning paths to help you achieve your goals. Start your journey with us today.
+            </p>
+
+            <Button size="lg" className="w-full max-w-xs text-lg" asChild>
+                <Link href="/signup">Start Learning</Link>
+            </Button>
         </div>
       </main>
-
-      <footer className="w-full flex justify-center p-8 z-10">
-        <Button size="lg" className="w-full max-w-xs text-lg" asChild>
-          <Link href="/signup">Get Started</Link>
-        </Button>
-      </footer>
     </div>
   );
 }
