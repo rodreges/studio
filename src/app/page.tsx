@@ -1,121 +1,59 @@
-import Image from 'next/image';
+'use client';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Code, Database, Palette } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import LearningPathForm from '@/components/learning-path-form';
-import Header from '@/components/header';
-import { CourseCard } from '@/components/course-card';
+import Image from 'next/image';
+import Link from 'next/link';
+import { BlobOne, BlobTwo, BlobThree, BlobFour } from '@/components/blobs';
 
-export default function Home() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
-
-  const featuredCourses = [
-    {
-      id: 'web-dev',
-      icon: Code,
-      title: 'Web Development',
-      description: 'Master the art of building modern, responsive websites and web applications.',
-    },
-    {
-      id: 'data-science',
-      icon: Database,
-      title: 'Data Science',
-      description: 'Unlock insights from data and learn to make predictions with machine learning.',
-    },
-    {
-      id: 'design',
-      icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Create beautiful, intuitive, and user-friendly digital experiences.',
-    },
-  ];
+export default function MobileLearningPage() {
+  const onlineLearningImage = {
+    imageUrl: 'https://picsum.photos/seed/online-learning/400/300',
+    imageHint: 'online learning',
+  };
+  const readingImage = {
+    imageUrl: 'https://picsum.photos/seed/reading-books/400/300',
+    imageHint: 'reading books',
+  };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <main className="flex-1">
-        <section className="relative w-full overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-background to-secondary/30 -z-20"></div>
-          <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-primary/10 rounded-full -z-10 blur-3xl"></div>
-          <div className="absolute -top-24 -right-24 w-72 h-72 bg-accent/10 rounded-full -z-10 blur-3xl"></div>
-          
-          <div className="container px-4 md:px-6 py-20 md:py-28">
-            <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
-              <div className="flex flex-col justify-center space-y-6">
-                <div className="space-y-4">
-                  <h1 className="text-4xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none font-headline text-foreground">
-                    Your Personalized Journey to Knowledge
-                  </h1>
-                  <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    EduStart uses AI to create a unique learning path tailored to your interests and goals. Start your journey today.
-                  </p>
-                </div>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" asChild>
-                    <a href="#create-path">
-                      Create Your Path
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
-              <div className="relative flex items-center justify-center">
-                {heroImage && (
-                  <Image
-                    alt="A student learning with a laptop"
-                    className="mx-auto aspect-[4/3] overflow-hidden rounded-2xl object-cover shadow-2xl"
-                    src={heroImage.imageUrl}
-                    width={600}
-                    height={450}
-                    data-ai-hint={heroImage.imageHint}
-                    priority
-                  />
-                )}
-                 <div className="absolute -bottom-10 -right-10 w-40 h-40 border-8 border-accent rounded-full -z-10 animate-pulse"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div className="relative flex flex-col h-screen w-full overflow-hidden bg-white">
+      {/* Background Blobs */}
+      <BlobOne className="absolute -top-40 -left-40 text-primary/80" />
+      <BlobTwo className="absolute -top-40 -right-20 text-accent/60" />
+      <BlobThree className="absolute bottom-[-350px] -left-20 text-primary" />
+      <BlobFour className="absolute bottom-[200px] right-[-200px] text-accent/60" />
+      
+      <main className="flex flex-col flex-1 z-10 px-8 py-12">
+        <h1 className="text-5xl font-bold text-white mb-10">Let's learn</h1>
 
-        <section id="create-path" className="w-full py-12 md:py-24 lg:py-32">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Generate Your Learning Path</h2>
-                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Tell us about your interests and goals, and our AI will craft a personalized roadmap for you.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto max-w-4xl pt-12">
-              <LearningPathForm />
-            </div>
-          </div>
-        </section>
-
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-secondary/30">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">Explore Popular Categories</h2>
-               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                 Dive into our most popular categories and start learning something new today.
-               </p>
-            </div>
-            <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3 pt-12">
-              {featuredCourses.map((course) => (
-                <CourseCard
-                  key={course.id}
-                  icon={course.icon}
-                  title={course.title}
-                  description={course.description}
+        <div className="flex-1 flex flex-col justify-center items-center gap-8">
+            <div className="relative w-64 h-48 bg-white p-3 rounded-3xl shadow-lg -rotate-6 transform">
+                <Image
+                    src={onlineLearningImage.imageUrl}
+                    alt="A person learning online"
+                    width={400}
+                    height={300}
+                    data-ai-hint={onlineLearningImage.imageHint}
+                    className="rounded-2xl object-cover w-full h-full"
                 />
-              ))}
             </div>
-          </div>
-        </section>
+            <div className="relative w-64 h-48 bg-white p-3 rounded-3xl shadow-lg rotate-6 transform">
+                <Image
+                    src={readingImage.imageUrl}
+                    alt="A person reading books"
+                    width={400}
+                    height={300}
+                    data-ai-hint={readingImage.imageHint}
+                    className="rounded-2xl object-cover w-full h-full"
+                />
+            </div>
+        </div>
       </main>
-      <footer className="flex items-center justify-center py-6 w-full shrink-0 border-t">
-         <p className="text-xs text-muted-foreground">&copy; 2024 EduStart. All rights reserved.</p>
+
+      <footer className="w-full flex justify-center p-8 z-10">
+        <Button size="lg" className="w-full max-w-xs text-lg" asChild>
+          <Link href="/signup">Get Started</Link>
+        </Button>
       </footer>
     </div>
   );
